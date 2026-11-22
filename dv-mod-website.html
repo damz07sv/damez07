@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17171c">
+<title>Damez07 👑</title>
+<style>
+:root{--bg:#17171c;--panel:#1b1b21;--pink:#f52d63;--purple:#a62cff;--muted:#a5a2aa;--line:#393941}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+button,a{font:inherit}
+button{cursor:pointer;color:inherit}
+#intro{min-height:100svh;display:grid;place-items:center;padding:32px 20px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,#301027 0,#160b19 42%,#100d16 100%)}
+.matrix{position:absolute;inset:0;opacity:.19;pointer-events:none;background-image:repeating-linear-gradient(90deg,transparent 0 27px,rgba(255,30,91,.08) 28px 29px),repeating-linear-gradient(0deg,transparent 0 27px,rgba(169,50,255,.07) 28px 29px)}
+.intro-content{position:relative;max-width:650px;width:100%}
+.rule{height:2px;background:linear-gradient(90deg,transparent,#ff426e,transparent);margin:0 auto 58px;max-width:560px}
+.plus{width:136px;height:136px;margin:auto;border:2px solid #9d234e;border-radius:34px;display:grid;place-items:center;color:#ff315f;font-size:66px;box-shadow:0 0 45px #f5225733;background:#291126}
+h1{font-size:clamp(30px,6vw,48px);line-height:1.1;margin:38px 0 22px;font-weight:900}
+h1 span{color:#ff3767;text-shadow:0 0 24px #ff245555}
+.sub{font-size:clamp(16px,3vw,23px);letter-spacing:1px;color:#ddd;margin:0 0 16px}
+.telegram{color:#ff69b8;font-weight:800;font-size:20px;margin-bottom:52px}
+.enter{width:min(100%,590px);border:0;border-radius:32px;padding:24px 26px;background:linear-gradient(100deg,#ec1761,#b91fd0,#ed1758);font-size:24px;font-weight:900;box-shadow:0 15px 40px #e51b6044;transition:.2s}
+.enter:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.enter span{float:right}
+#home{display:none;min-height:100svh;position:relative;overflow:hidden;background-color:#19191e;background-image:radial-gradient(#34343d 1.5px,transparent 1.5px);background-size:28px 28px;padding:28px 4vw 70px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.clock{border:1px solid #41414a;border-radius:30px;padding:12px 24px;font-size:23px;font-weight:700;letter-spacing:1px;background:#1b1b21}
+.top-actions{display:flex;gap:18px}
+.icon-btn{width:80px;height:80px;border:1px solid #7135a0;border-radius:25px;background:#1b1b22;font-size:30px;position:relative}
+.dot{position:absolute;right:20px;top:16px;width:12px;height:12px;background:#ed315b;border-radius:50%;box-shadow:0 0 12px #ed315b}
+.profile{text-align:center;margin:58px auto 26px}
+.avatar{width:250px;height:250px;border-radius:50%;margin:auto;border:7px solid #c7c7ce;background:radial-gradient(circle at 35% 35%,#f5d7b0,#8d7a72 38%,#34313a 68%,#121218);display:grid;place-items:center;font-size:112px;box-shadow:0 0 35px #fff2}
+.sparkles{font-size:24px;letter-spacing:24px;margin:0 0 10px}
+.verified{display:inline-block;border:2px solid #484850;border-radius:30px;padding:12px 36px;font-size:25px;font-weight:800;margin-top:28px}
+.verified b{color:#28bfff}
+.brand{font-size:clamp(42px,8vw,72px);font-weight:950;letter-spacing:14px;margin:46px 0 18px}
+.bars{display:flex;justify-content:center;gap:24px;height:38px;align-items:end;margin-bottom:45px}
+.bars i{width:6px;border-radius:8px;background:#f22e59;box-shadow:0 0 15px #f22e59;height:22px;animation:pulse .8s infinite alternate}
+.bars i:nth-child(2){height:34px;animation-delay:.2s}.bars i:nth-child(3){height:27px;animation-delay:.4s}.bars i:nth-child(4){height:32px;animation-delay:.1s}.bars i:nth-child(5){height:18px;animation-delay:.3s}
+@keyframes pulse{to{opacity:.35;transform:scaleY(.55)}}
+.download{width:100%;max-width:900px;border:2px solid #494951;border-radius:42px;background:#1c1c22;padding:22px;font-size:27px;font-weight:900;letter-spacing:1px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:34px auto 48px;max-width:1150px}
+.stat{min-height:185px;border:2px solid #8b2448;border-radius:36px;padding:22px;position:relative;background:#1b1b21}
+.stat:nth-child(2){border-color:#08795b}.stat:nth-child(3){border-color:#80500a}
+.stat .num{font-size:32px;font-weight:900}.stat small{display:block;color:#aaa;font-weight:800;letter-spacing:1px;margin-top:4px}
+.stat .symbol{font-size:28px;margin-right:16px}
+.sparkline{position:absolute;right:20px;bottom:22px;color:#ff456d;font-size:28px;letter-spacing:2px}
+.stat:nth-child(2) .sparkline{color:#16d49b}.stat:nth-child(3) .sparkline{color:#ffbd20}
+.pill-link{display:inline-block;border:2px solid #a32cff;color:#d6aaff;background:#271633;border-radius:30px;padding:12px 25px;font-weight:850;letter-spacing:1px;margin-bottom:28px}
+.socials{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:30px}
+.social{display:flex;align-items:center;justify-content:center;gap:18px;text-decoration:none;color:#fff;font-size:28px;font-weight:850;border-radius:28px;padding:26px 16px;border:2px solid #a92735;background:#351317}
+.social:nth-child(2){border-color:#007f9a;background:#0d2029}
+.social:nth-child(3){border-color:#0b91c7;background:#0e2531}
+.social:nth-child(4){border-color:#6253d8;background:#1b1935}
+.notice{display:inline-block;border:2px solid #a32cff;color:#d6aaff;background:#271633;border-radius:30px;padding:12px 25px;font-weight:850;letter-spacing:1px;margin:8px 0 28px}
+.floating{position:fixed;right:22px;bottom:22px;display:flex;align-items:center;gap:10px;border:1px solid #63328b;background:#201b2b;border-radius:32px;padding:10px 12px;box-shadow:0 0 25px #a62cff44}
+.floating button{border:0;background:#bd3ce8;border-radius:20px;width:56px;height:56px;font-size:23px}
+.settings{position:fixed;right:24px;bottom:120px;width:58px;height:58px;border:1px solid #41414a;border-radius:20px;background:#202027;font-size:25px}
+.menu-panel{display:none;position:fixed;right:25px;top:115px;background:#24232b;border:1px solid #71409b;border-radius:18px;padding:18px;z-index:5;min-width:180px;box-shadow:0 12px 35px #0008}
+.menu-panel a{display:block;color:white;text-decoration:none;padding:10px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#302337;border:1px solid #a32cff;padding:12px 20px;border-radius:24px;display:none;z-index:10}
+@media(max-width:650px){
+ #home{padding:20px 4vw 90px}.icon-btn{width:64px;height:64px;border-radius:20px}.clock{font-size:17px;padding:10px 17px}
+ .profile{margin-top:48px}.avatar{width:190px;height:190px;font-size:86px}.verified{font-size:20px}
+ .brand{letter-spacing:9px;margin-top:42px}.download{font-size:20px;padding:19px 8px}
+ .stats{gap:10px;margin:25px auto 35px}.stat{min-height:150px;padding:13px;border-radius:28px}.stat .num{font-size:24px}.stat .symbol{display:block;margin:0 0 8px}.stat small{font-size:10px}.sparkline{font-size:19px;right:10px;bottom:12px}
+ .socials{gap:12px}.social{font-size:19px;padding:22px 8px;border-radius:22px}.pill-link,.notice{font-size:13px;padding:11px 15px}
+}
+</style>
+</head>
+<body>
+<section id="intro">
+ <div class="matrix"></div>
+ <div class="intro-content">
+  <div class="rule"></div><div class="plus">+</div>
+  <h1>WELCOME TO <span>dv mod</span></h1>
+  <p class="sub">KHO LƯU TRỮ MOD VÀ TIỆN ÍCH</p>
+  <div class="telegram">Telegram: @leuleucay</div>
+  <button class="enter" onclick="enterSite()">✚　 VÀO WEB NGAY <span>➜</span></button>
+ </div>
+</section>
+<main id="home">
+ <header class="topbar">
+  <div class="clock"><span id="clock">23:19:14</span>　🌙</div>
+  <div class="top-actions">
+   <button class="icon-btn" aria-label="Thông báo" onclick="toast('Bạn chưa có thông báo mới')">♧<i class="dot"></i></button>
+   <button class="icon-btn" aria-label="Menu" onclick="toggleMenu()">☰</button>
+  </div>
+ </header>
+ <nav class="menu-panel" id="menu">
+  <a href="#profile" onclick="toggleMenu()">Trang chủ</a><a href="#links" onclick="toggleMenu()">Liên kết</a><a href="#stats" onclick="toggleMenu()">Thống kê</a>
+ </nav>
+ <section class="profile" id="profile">
+  <div class="sparkles">✦　✧　✦</div>
+  <div class="avatar" aria-label="Ảnh đại diện">🐱</div>
+  <div class="sparkles">✦　✧　✦</div>
+  <div class="verified">damez07 <b>●</b></div>
+  <div class="brand">👑 damez07 👑</div>
+  <div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
+ </section>
+ <button class="download" onclick="toast('Thêm đường dẫn tải game của bạn vào nút này')">✚　🎮　 TẢI GAME NGAY　↓　✚</button>
+ <section class="stats" id="stats">
+  <div class="stat"><div><span class="symbol">◎</span><span class="num">5.143</span><small>LƯỢT XEM</small></div><div class="sparkline">▂▃▄▆▇</div></div>
+  <div class="stat"><div><span class="symbol">⟳</span><span class="num">2.026</span><small>CẬP NHẬT</small></div><div class="sparkline">〰〰</div></div>
+  <div class="stat"><div><span class="symbol">▣</span><span class="num">#1</span><small>IOS　👑</small></div><div class="sparkline">⌁⌁</div></div>
+ </section>
+ <div class="pill-link">◔　ĐĂNG KÝ KÊNH TẠI ĐÂY</div>
+ <section class="socials" id="links">
+  <a class="social" href="#" onclick="toast('Thay # bằng link YouTube của bạn');return false">▶　Youtube</a>
+  <a class="social" href="#" onclick="toast('Thay # bằng link TikTok của bạn');return false">♪　TikTok</a>
+ </section>
+ <div class="notice">♧　NHÓM THÔNG BÁO BẮT BUỘC VÀO</div>
+ <section class="socials">
+  <a class="social" href="#" onclick="toast('Thay # bằng link Telegram của bạn');return false">➤　Kênh Telegram</a>
+  <a class="social" href="#" onclick="toast('Thay # bằng link Discord của bạn');return false">☻　Kênh Discord</a>
+ </section>
+ <button class="settings" onclick="toast('Khu vực cài đặt')">⚙</button>
+ <div class="floating">♫ <button id="music" onclick="toggleMusic()">Ⅱ</button></div>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+function enterSite(){document.getElementById('intro').style.display='none';document.getElementById('home').style.display='block';window.scrollTo(0,0)}
+function updateClock(){document.getElementById('clock').textContent=new Date().toLocaleTimeString('vi-VN',{hour12:false})}
+updateClock();setInterval(updateClock,1000);
+function toggleMenu(){const m=document.getElementById('menu');m.style.display=m.style.display==='block'?'none':'block'}
+let playing=true;function toggleMusic(){playing=!playing;document.getElementById('music').textContent=playing?'Ⅱ':'▶';toast(playing?'Đã bật trạng thái nhạc':'Đã tạm dừng nhạc')}
+let timer;function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(timer);timer=setTimeout(()=>t.style.display='none',2400)}
+</script>
+</body>
+</html>
